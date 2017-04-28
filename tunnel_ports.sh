@@ -1,3 +1,11 @@
+###########################################################
+#
+# Script to open ports on vagrant and local machine so
+# that BE and FE can be run locally but still use DB, ES,
+# Redis, ... from within vagrant.
+#
+##############################################################
+
 ssh vagrant@127.0.0.1 \
   -p 2222 \
   -i /Users/`whoami`/.vagrant.d/insecure_private_key \
