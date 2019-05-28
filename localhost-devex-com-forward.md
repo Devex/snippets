@@ -1,15 +1,29 @@
-# Use local.devex.com to access your Vagrant Box
+# Access your local Docker setup without specifying the port
 
-If you want to access your vagrant box via local.devex.com, you have to do the steps described below.
+Your Docker Nginx machine is set up to respond to port 8443 which you can
+access via `https://localhost.devex.com:8443` (there is a mapping set up
+on the `devex.com` DNS server to have the subdomain `localhost.devex.com`
+point to 127.0.0.1, your local machine's IP address).
 
-## 1. Define local.devex.com
+## Make `https://localhost.devex.com:8443` work offline
 
-Add the following line to `/etc/hosts`:
+Since the mapping for `localhost.devex.com` is set up on Devex's public
+DNS server, your computer still needs a connection to the internet to
+resolve this.
+If you want to be able to work truely offline but still access your Docker
+machine via `https://localhost.devex.com:8443`, you can add the following
+line to your `/etc/hosts` file:
+
 ```
-127.0.0.1  local.devex.com
+127.0.0.1 localhost.devex.com
 ```
 
-## 2. Make https://local.devex.com work without a port
+## Getting rid of the 8443 port
+
+If you prefer to access `https://localhost.devex.com` **without having to
+specify the port** (e.g. to access cookies set on `*.devex.com`), you can
+do the following steps to remap port `8443` to the privileged port `443`
+(standard HTTPS port).
 
 ### Linux
 
